@@ -1,0 +1,77 @@
+// 设置变量
+@bg-color: #b7d4a8;
+
+//清除默认样式
+* {
+  padding: 0;
+  margin: 0;
+  // 改变盒子模型的计算方式  width height设置盒子的总大小，改变盒子大小的时候，不用在计算了 不用在计算内边距 边框大小 直接设置
+  box-sizing: border-box;
+}
+
+body {
+  font: bold 20px 'Courier';
+}
+#main {
+  width: 360px;
+  height: 420px;
+  background-color: @bg-color;
+  margin: 100px auto;
+  border: 10px solid black;
+  border-radius: 40px;
+
+  // 开启弹性盒模型 父元素设置，子元素都有效果
+  display: flex;
+  // 设置主轴方向
+  flex-flow: column;
+  // 设置侧轴方向
+  align-items: center;
+  // 设置主轴的对齐方式
+  justify-content: space-around;
+
+  #stage {
+    width: 304px;
+    height: 304px;
+    border: 2px solid black;
+    position: relative;
+    #snake {
+      & > div {
+        width: 10px;
+        height: 10px;
+        background-color: #000;
+        border: 1px solid @bg-color;
+        // 位置改变，开启绝对定位,相对于舞台的,开启相对定位
+        position: absolute;
+      }
+    }
+    #food {
+      width: 10px;
+      height: 10px;
+      // 位置改变，开启绝对定位,相对于舞台的,开启相对定位
+      position: absolute;
+      display: flex;
+      // 设置横轴为主轴，warp表示自动换行
+      flex-flow: row wrap;
+      //设置主轴和侧轴的空白空间分配到元素之间
+      justify-content: space-between;
+      align-content: space-between;
+      // background-color: red;
+      left: 50px;
+      top: 100px;
+      & > div {
+        width: 4px;
+        height: 4px;
+        background-color: #000;
+        border: 1px solid @bg-color;
+        // 使四个div旋转45度
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  #score-panel {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

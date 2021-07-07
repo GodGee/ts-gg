@@ -71,7 +71,7 @@
     // 所有严格检查的总开关
     "strict": true,
     // 用来设置编译后的文件是否使用严格模式，默认false
-    // 在ES6中的模块化会自动使用严格模式，而无需在文件开头添加`'use strict'`
+    // 在ES6中的模块化(import)会自动使用严格模式，而无需在文件开头添加`'use strict'`
     "alwaysStrict": true,
     // 不允许隐式的any类型
     "noImplicitAny": true,
